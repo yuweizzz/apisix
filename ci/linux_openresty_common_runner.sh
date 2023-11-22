@@ -33,9 +33,6 @@ do_install() {
 
     ./ci/linux-install-etcd-client.sh
 
-    # install brotli
-    install_brotli
-
     create_lua_deps
     # sudo apt-get install tree -y
     # tree deps
