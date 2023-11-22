@@ -3,7 +3,7 @@ name: fuzzing
 on:
   workflow_dispatch:
   push:
-    branches: [master, 'release/**']
+    branches: [master, brotli-test, 'release/**']
     paths-ignore:
       - 'docs/**'
       - '**/*.md'
