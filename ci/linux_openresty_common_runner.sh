@@ -33,8 +33,10 @@ do_install() {
 
     ./ci/linux-install-etcd-client.sh
 
+    # install brotli
+    install_brotli
+
     create_lua_deps
-    ls -al /home/runner/work/apisix/apisix/deps
     # sudo apt-get install tree -y
     # tree deps
 
@@ -63,9 +65,6 @@ do_install() {
     # install vault cli capabilities
     install_vault_cli
 
-    # install brotli
-    install_brotli
-    ls -al /home/runner/work/apisix/apisix/deps
 }
 
 script() {
