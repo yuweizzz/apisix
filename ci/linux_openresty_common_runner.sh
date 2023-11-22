@@ -32,11 +32,11 @@ do_install() {
     ./utils/linux-install-luarocks.sh
 
     ./ci/linux-install-etcd-client.sh
-
+    
     create_lua_deps
     # sudo apt-get install tree -y
     # tree deps
-
+    ls -al ~/.cache
     git clone --depth 1 https://github.com/openresty/test-nginx.git test-nginx
     make utils
 
@@ -61,7 +61,8 @@ do_install() {
 
     # install vault cli capabilities
     install_vault_cli
-
+    install_brotli
+    ls -al ~/.cache
 }
 
 script() {
