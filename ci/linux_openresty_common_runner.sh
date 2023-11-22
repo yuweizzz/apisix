@@ -34,7 +34,8 @@ do_install() {
     ./ci/linux-install-etcd-client.sh
 
     create_lua_deps
-
+    ls -al /home/runner/work/apisix/
+    ls -al /home/runner/work/apisix/apisix
     # sudo apt-get install tree -y
     # tree deps
 
@@ -65,6 +66,8 @@ do_install() {
 
     # install brotli
     install_brotli
+    ls -al /home/runner/work/apisix/
+    ls -al /home/runner/work/apisix/apisix
 }
 
 script() {
