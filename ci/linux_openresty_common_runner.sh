@@ -62,7 +62,9 @@ do_install() {
     # install vault cli capabilities
     install_vault_cli
     install_brotli
-chmod -R u+w /home/runner/work/apisix/apisix/
+    mkdir -p ~/.luarocks
+    ls -al ~/
+    ls -al /home/runner/work/apisix/apisix/deps/lib/luarocks/rocks-5.1
 }
 
 script() {
