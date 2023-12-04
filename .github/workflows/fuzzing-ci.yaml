@@ -64,7 +64,6 @@ jobs:
         ./utils/linux-install-luarocks.sh
         
         ls -al deps
-        make deps
         make init
         make run
 
