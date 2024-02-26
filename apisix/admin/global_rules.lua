@@ -16,8 +16,10 @@
 --
 local core = require("apisix.core")
 local resource = require("apisix.admin.resource")
+local get_uri_args = ngx.req.get_uri_args
 local schema_plugin = require("apisix.admin.plugins").check_schema
 
+local _M = {}
 
 local function check_conf(id, conf, need_id, schema)
     local ok, err = core.schema.check(schema, conf)
@@ -33,11 +35,22 @@ local function check_conf(id, conf, need_id, schema)
     return true
 end
 
+local function new()
+    return resource.new({
+        name = "global_rules",
+        kind = "global rule",
+        schema = core.schema.global_rule,
+        checker = check_conf,
+        unsupported_methods = {"post"}
+    })
+end
+_M.new = new
 
-return resource.new({
-    name = "global_rules",
-    kind = "global rule",
-    schema = core.schema.global_rule,
-    checker = check_conf,
-    unsupported_methods = {"post"}
-})
+
+function _M.get(name)
+
+    return 200, {info = name}
+end
+
+
+return _M
