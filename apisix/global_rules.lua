@@ -17,6 +17,7 @@
 
 local core    = require("apisix.core")
 local plugin_checker = require("apisix.plugin").plugin_checker
+local stream_plugin_checker = require("apisix.plugin").stream_plugin_checker
 local error = error
 
 
@@ -24,12 +25,20 @@ local _M = {}
 
 local global_rules
 
+local function dispatch_checker(item)
+    if item.subsystem == "stream" then
+        return stream_plugin_checker
+    end
+    return plugin_checker
+end
+
+
 function _M.init_worker()
     local err
     global_rules, err = core.config.new("/global_rules", {
         automatic = true,
         item_schema = core.schema.global_rule,
-        checker = plugin_checker,
+        checker = dispatch_checker,
     })
     if not global_rules then
         error("failed to create etcd instance for fetching /global_rules : "

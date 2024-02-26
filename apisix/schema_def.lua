@@ -838,7 +838,11 @@ _M.global_rule = {
         id = id_schema,
         plugins = plugins_schema,
         create_time = timestamp_def,
-        update_time = timestamp_def
+        update_time = timestamp_def,
+        subsystem = {
+            enum = {"http", "stream"},
+            default = "http"
+        },
     },
     required = {"id", "plugins"},
     additionalProperties = false,
