@@ -33,7 +33,9 @@ local function check_conf(id, conf, need_id, schema)
     return true
 end
 
-local function get(id)
+
+-- overwrite resource:get()
+local function get(self, id)
     local arg = get_uri_args()
     local subsystem = arg["subsystem"] or "all"
     if subsystem ~= "http" and subsystem ~= "stream" and subsystem ~= "all" then
