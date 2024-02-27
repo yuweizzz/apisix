@@ -220,7 +220,7 @@ local function run()
     end
 
     local code, data
-    if seg_res == "schema" or seg_res == "plugins" or seg_res == "global_rules" then
+    if seg_res == "schema" or seg_res == "plugins" then
         code, data = resource[method](seg_id, req_body, seg_sub_path, uri_args)
     else
         code, data = resource[method](resource, seg_id, req_body, seg_sub_path, uri_args)
