@@ -132,7 +132,7 @@ apisix:
                                   # unrecoverable.
 
   events:                             # Event distribution module configuration
-    module: lua-resty-worker-events          # Sets the name of the events module used.
+    module: lua-resty-events          # Sets the name of the events module used.
                                       # Supported module: lua-resty-worker-events and lua-resty-events
 
 nginx_config:                     # Config for render the template to generate nginx.conf
